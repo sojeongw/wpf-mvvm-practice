@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InBuildingLayerSplitter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="745" Width="1260">
-    <Grid>
-        
-    </Grid>
+        Loaded="Window_Loaded"
+        Title="5G In-Building Layer Splitter" Height="745" Width="1260">
+   
 </Window>
