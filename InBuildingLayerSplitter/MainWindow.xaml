@@ -6,6 +6,45 @@
         xmlns:local="clr-namespace:InBuildingLayerSplitter"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
         Title="5G In-Building Layer Splitter" Height="745" Width="1260">
-   
+    <Grid>
+        <Grid ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--메뉴-->
+            <StackPanel Grid.Column="0">
+                <Button>1</Button>
+                <Button>2</Button>
+                <Button>3</Button>
+                <Button>4</Button>
+                <Button>5</Button>
+            </StackPanel>
+
+            <!--좌측 정보 panel-->
+            <Grid Grid.Column="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0">AAU Control</Label>
+                <Label Grid.Row="1">Settings</Label>
+            </Grid>
+
+            <!--우측 메인 panel-->
+
+            <!--하단 상태 바-->
+            <Border Grid.Row="1" Grid.ColumnSpan="3" Background="Indigo"/>
+        </Grid>
+    </Grid>
+    
+    
 </Window>
