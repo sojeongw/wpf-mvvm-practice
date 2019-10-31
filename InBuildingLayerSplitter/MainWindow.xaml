@@ -41,8 +41,27 @@
                 </Grid.RowDefinitions>
                 <StackPanel>
                     <TextBlock Grid.Row="0">AAU Control</TextBlock>
+                    
                     <TextBox x:Name="aau_content" Margin="10, 20">항목 내용</TextBox>
+                    
+                    <ComboBox x:Name="aau_ComboBox" Margin="10">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                <Image Source="C:\Users\sktsuser\Pictures\20190131_173211.jpg" Width="20" Height="20"></Image>
+                                <TextBlock Text="{Binding FirstName}"/>
+                                <TextBlock Text=" "/>
+                                <TextBlock Text="{Binding LastName}"/>
+                                <TextBlock Text="{Binding FullName}"/>
+                                </StackPanel>
+                            </DataTemplate>                         
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                    
                     <Button x:Name="submitButton" Content="click" Margin="10" Click="submitButton_Click"></Button>
+
+                    
+                   
                 </StackPanel>
                 <TextBlock Grid.Row="1">Settings</TextBlock>
             </Grid>
@@ -52,9 +71,11 @@
 
             <TabControl Grid.Column="2">
                 <TabItem Header="DL / UL">
-                    <TextBlock>
+                    <ScrollViewer>
+                        <TextBlock>
                         Content
-                    </TextBlock>
+                        </TextBlock>
+                    </ScrollViewer>                    
                 </TabItem>
                 <TabItem Header="SFP"></TabItem>
                 <TabItem Header="Function"></TabItem>
