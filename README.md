@@ -1,2 +1,2 @@
-# InBuildingLayerSplitter
-SKTS 5G In-Building Layer Splitter
+# wpf-mvvm-practice
+WPF in C# with MVVM using Caliburn Micro
