@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVVM.Practice.Properties
+namespace wpf_mvvm_practice.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace MVVM.Practice.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MVVM.Practice.Properties.Resources",typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("wpf_mvvm_practice.Properties.Resources",typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

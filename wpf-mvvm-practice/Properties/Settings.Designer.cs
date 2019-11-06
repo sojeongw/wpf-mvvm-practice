@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVVM.Practice.Properties
+namespace wpf_mvvm_practice.Properties
 {
 
 
