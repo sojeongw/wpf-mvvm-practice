@@ -1,0 +1,57 @@
+﻿<Window x:Class="wpf_mvvm_combobox.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_mvvm_combobox.Views"
+        xmlns:cal="http://www.caliburnproject.org"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="ShellView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--<ComboBox Grid.Row="0" ItemsSource="{Binding People}">-->
+        <!--캘리번이 view와 model을 연결시키면서 itemSource 대신 x:Name으로 바로 연결 할 수 있다.-->
+        <ComboBox Grid.Row="0" x:Name="People" SelectedItem="{Binding SelectedPerson}">
+            <!--ItemTemplate: 여러 항목을 설정할 때 사용-->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!--People 안의 Person 객체에서 FullName을 하나씩 가져옴-->
+                        <TextBlock Text="{Binding FullName}"/>
+                        <TextBlock Text=" - Are they alive: "/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsAlive}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox Grid.Row="1" x:Name="SelectedPerson_Addresses" 
+                  SelectedItem="{Binding SelectedAddress}"
+                  cal:Message.Attach="[Event SeletionChanged] = [Action MyMethod()]">
+            <!--캘리번을 이용해 업데이트된 내용 가져오는 법-->
+            
+            <!--ItemTemplate: 여러 항목을 설정할 때 사용-->
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding FullAddress}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <!--원래 PrimaryAddress은 객체고 FullAddres는 string으로 이루어져 있으므로 아무것도 안나와야 한다.-->
+        <!--캘리번에서는 _이 .을 의미한다. FullAddress에 바로 접근할 수 있다.-->
+        <!--<TextBlock x:Name="PrimaryAddress_FullAddress" Grid.Row="2"/>-->
+
+        <!--shellviewmodel에 SelectedAddress를 따로 정의 했으므로 아래의 코드로 대체함-->
+        <TextBlock x:Name="SelectedAddress_FullAddress" Grid.Row="2"/>
+    </Grid>
+</Window>
