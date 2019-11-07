@@ -1,0 +1,51 @@
+﻿<Window x:Class="wpf_mvvm_itemscontrol.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_mvvm_itemscontrol.Views"
+        xmlns:cal="http://www.caliburnproject.org"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="ShellView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button x:Name="AddPerson">Add new person</Button>
+            <!--itemsControl은 뿌려주는 것이지 행/열을 추가하는데에 적합한 것이 아니기 때문에 특정 행/열을 선택할 수 없으므로 random으로 수행한다-->
+            <Button x:Name="RemovePerson">Remove random person</Button>
+        </StackPanel>
+
+        <!--ItemSource: 어떤 데이터를 바인딩 할 것인지 설정-->
+        <!--<ItemsControl ItemsSource="{Binding People}" Grid.Row="1">-->
+        <!--같은 코드-->
+        <ItemsControl x:Name="People" Grid.Row="1">
+            <!--itemsPanel: 모든 itemTemplate에 대해 적용-->
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <!--ItemTemplate: 모든 줄에 있는 아이템에 대해 적용-->
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10" Padding="10">
+                        <!--dataTemplate은 하나만 넣을 수 있어서 fullname과 accoutblalance 둘 다 넣으면 에러가 뜬다-->
+                        <!--따라서 stack panel 안에 넣어줘야 함-->
+                        <StackPanel>
+                            <TextBlock Text="{Binding FullName}"/>
+                            <TextBox Text="{Binding AccountBalance}"/>
+                            <!--이제 people 객체의 모든 요소에 대해 full name과 accountbalance를 출력한다-->
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
