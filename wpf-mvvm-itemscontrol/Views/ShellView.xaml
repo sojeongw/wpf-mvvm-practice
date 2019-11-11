@@ -40,7 +40,7 @@
                         <!--따라서 stack panel 안에 넣어줘야 함-->
                         <StackPanel>
                             <TextBlock Text="{Binding FullName}"/>
-                            <TextBox Text="{Binding AccountBalance}"/>
+                            <TextBlock Text="{Binding AccountBalance}"/>
                             <!--이제 people 객체의 모든 요소에 대해 full name과 accountbalance를 출력한다-->
                         </StackPanel>
                     </Border>
