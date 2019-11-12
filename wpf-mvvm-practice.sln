@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf-mvvm-datagrid", "wpf-mv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpf-mvvm-multipleviews", "wpf-mvvm-multipleviews\wpf-mvvm-multipleviews.csproj", "{74E1C8A3-1DC1-4B01-80A5-EC61D20B6FFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRM-data-manager", "TRM-data-manager\TRM-data-manager.csproj", "{E6481F0F-14E0-4518-B2BB-E5CC48E9F678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRM-data-manager-wpf", "TRM-data-manager-wpf\TRM-data-manager-wpf.csproj", "{D473F775-7125-4749-ABF0-19E2F63F4B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{74E1C8A3-1DC1-4B01-80A5-EC61D20B6FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74E1C8A3-1DC1-4B01-80A5-EC61D20B6FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74E1C8A3-1DC1-4B01-80A5-EC61D20B6FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6481F0F-14E0-4518-B2BB-E5CC48E9F678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6481F0F-14E0-4518-B2BB-E5CC48E9F678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6481F0F-14E0-4518-B2BB-E5CC48E9F678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6481F0F-14E0-4518-B2BB-E5CC48E9F678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D473F775-7125-4749-ABF0-19E2F63F4B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D473F775-7125-4749-ABF0-19E2F63F4B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D473F775-7125-4749-ABF0-19E2F63F4B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D473F775-7125-4749-ABF0-19E2F63F4B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
