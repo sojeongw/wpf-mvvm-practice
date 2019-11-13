@@ -27,10 +27,6 @@ namespace TRM_data_manager_wpf
                 .Singleton<IWindowManager,WindowManager>()
                 .Singleton<IEventAggregator,EventAggregator>();
 
-            // 각 리퀘스트마다 인스턴스 생성
-            _container
-                .PerRequest<ICalculations, Calculations>();
-
             // 애플리케이션의 모든 type을 받아온 뒤 class 타입이면서 ViewModel로 끝나는 이름을 가지는 것만 List로 만든다.
             // List가 되었으니 foreach를 이용해 지금 내 컨테이너에 요청이 들어올 때마다 인터페이스를 만들고 연결한다.
             GetType().Assembly.GetTypes()
