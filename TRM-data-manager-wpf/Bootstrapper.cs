@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using TRM_data_manager_wpf.Helpers;
 using TRM_data_manager_wpf.ViewModels;
 
 namespace TRM_data_manager_wpf
@@ -16,6 +18,11 @@ namespace TRM_data_manager_wpf
         public Bootstrapper()
         {
             Initialize();
+
+            ConventionManager.AddElementConvention<PasswordBox>(
+            PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
         }
         protected override void Configure()
         {
