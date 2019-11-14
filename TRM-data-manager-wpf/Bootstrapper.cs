@@ -29,10 +29,11 @@ namespace TRM_data_manager_wpf
             // simple container를 요청하면 자기 자신의 instance를 보낸다.
             _container.Instance(_container);
 
-            // 윈도우를 관리 + event 메시지를 듣고 pass 하는 클래스를 하나의 인스턴스로 괸리한다.
+            // 윈도우를 관리 + event 메시지를 듣고 pass 하는 클래스를 하나의 인스턴스로 관리한다. 실제 DI를 하는 부분.
             _container
                 .Singleton<IWindowManager,WindowManager>()
-                .Singleton<IEventAggregator,EventAggregator>();
+                .Singleton<IEventAggregator,EventAggregator>()
+                .Singleton<IAPIHelper, APIHelper>();
 
             // 애플리케이션의 모든 type을 받아온 뒤 class 타입이면서 ViewModel로 끝나는 이름을 가지는 것만 List로 만든다.
             // List가 되었으니 foreach를 이용해 지금 내 컨테이너에 요청이 들어올 때마다 인터페이스를 만들고 연결한다.
