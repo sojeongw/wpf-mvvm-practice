@@ -37,6 +37,34 @@ namespace TRM_data_manager_wpf.ViewModels
                 NotifyOfPropertyChange(() => CanLogIn);
             }
         }
+        public bool IsErrorVisible
+        {
+            get 
+            {
+                bool output = false;
+                // null일 경우 해당 statement를 건너뛴다.
+                if (ErrorMessage?.Length > 0)
+                {
+                    output = true;
+                }
+                return output; 
+            }
+        }
+        private string _errorMessage;
+
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
+            set 
+            {
+                // value가 바뀌면
+                _errorMessage = value; 
+
+                // error message가 바뀔 때마다 visibility도 바뀐다.
+                NotifyOfPropertyChange(() => IsErrorVisible);
+                NotifyOfPropertyChange(() => ErrorMessage);
+            }
+        }
         public bool CanLogIn
         {
             get
@@ -53,12 +81,14 @@ namespace TRM_data_manager_wpf.ViewModels
         {
             try
             {
+                // error message 없애는 용도
+                ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
             }
             catch (Exception ex)
             {
 
-                Console.WriteLine(ex.Message);
+                ErrorMessage = ex.Message;
             }
         }
     }

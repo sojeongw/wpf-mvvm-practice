@@ -8,7 +8,10 @@
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="Bootstrapper"/>
                 </ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>            
+            </ResourceDictionary.MergedDictionaries>
+            <!--static resource 이름을 그대로 넣어준다.-->
+            <!--visibility에 bool 값을 넣어주는데 visibility는 bool이 아니라 collapse 등 3가지로 이루어져 있다. true라면 visible, false라면 collapse가 된다.-->
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
