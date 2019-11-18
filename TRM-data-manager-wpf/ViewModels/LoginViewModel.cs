@@ -87,7 +87,6 @@ namespace TRM_data_manager_wpf.ViewModels
             }
             catch (Exception ex)
             {
-
                 ErrorMessage = ex.Message;
             }
         }
