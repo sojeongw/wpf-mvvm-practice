@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using TRM_data_manager_wpf.Helpers;
+using TRM_data_manager_wpf.Library.Api;
+using TRM_data_manager_wpf.Library.Models;
 using TRM_data_manager_wpf.ViewModels;
 
 namespace TRM_data_manager_wpf
@@ -33,6 +35,7 @@ namespace TRM_data_manager_wpf
             _container
                 .Singleton<IWindowManager,WindowManager>()
                 .Singleton<IEventAggregator,EventAggregator>()
+                .Singleton<ILoggedInUserModel, LoggedInUserModel>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             // 애플리케이션의 모든 type을 받아온 뒤 class 타입이면서 ViewModel로 끝나는 이름을 가지는 것만 List로 만든다.

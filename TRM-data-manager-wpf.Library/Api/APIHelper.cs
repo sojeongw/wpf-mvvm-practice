@@ -6,16 +6,18 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using TRM_data_manager_wpf.Models;
+using TRM_data_manager_wpf.Library.Models;
 
-namespace TRM_data_manager_wpf.Helpers
+namespace TRM_data_manager_wpf.Library.Api
 {
     public class APIHelper : IAPIHelper
     {
         private HttpClient apiClient { get; set; }
-        public APIHelper()
+        private ILoggedInUserModel _loggedInUser;
+        public APIHelper(ILoggedInUserModel loggedInUser)
         {
             InitializeClient();
+            _loggedInUser = loggedInUser;
         }
         private void InitializeClient()
         {
@@ -48,6 +50,32 @@ namespace TRM_data_manager_wpf.Helpers
                 else
                 {
                     // ReasonPhrase: 왜 fail인지 response를 출력한다.
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+        public async Task GetLoggedInUserInfo(string token)
+        {
+            apiClient.DefaultRequestHeaders.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            apiClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");    // 모든 호출마다 기본적으로 헤더에 토큰을 실어 보낸다.
+
+            using (HttpResponseMessage response = await apiClient.GetAsync("/api/User"))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
+                    _loggedInUser.CreatedDate = result.CreatedDate;
+                    _loggedInUser.EmailAddress = result.EmailAddress;
+                    _loggedInUser.FirstName = result.FirstName;
+                    _loggedInUser.Id = result.Id;
+                    _loggedInUser.LastName = result.LastName;
+                    _loggedInUser.Token = token;
+                }
+                else
+                {
                     throw new Exception(response.ReasonPhrase);
                 }
             }

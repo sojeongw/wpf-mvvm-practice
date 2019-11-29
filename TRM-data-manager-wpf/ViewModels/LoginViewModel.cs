@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TRM_data_manager_wpf.Helpers;
+using TRM_data_manager_wpf.Library.Api;
 
 namespace TRM_data_manager_wpf.ViewModels
 {
@@ -84,6 +84,9 @@ namespace TRM_data_manager_wpf.ViewModels
                 // error message 없애는 용도
                 ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
+
+                // Capture more information about the user
+                await _apiHelper.GetLoggedInUserInfo(result.Access_Token);
             }
             catch (Exception ex)
             {

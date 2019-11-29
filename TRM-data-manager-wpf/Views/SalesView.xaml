@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TRM_data_manager_wpf.Views"
              mc:Ignorable="d" Background="White" FontSize="24"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -27,7 +27,8 @@
         </Grid.ColumnDefinitions>
         
         <!--Header-->
-        <TextBlock Text="Sales Page" FontSize="40" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+        <TextBlock Text="Sales Page" FontSize="40" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
+                   Margin="0 0 0 20"/>
 
         <!--Column 0-->
         <TextBlock Text="Items" Grid.Row="1" Grid.Column="0"/>
